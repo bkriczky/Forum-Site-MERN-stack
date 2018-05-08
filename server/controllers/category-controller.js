@@ -1,13 +1,13 @@
 var Category = require('../models/category');
 
 module.exports.createCategory = function(req, res){
-	if (!req.body.name || !req.body.description){
+	if (!req.body.name){
 		return res.status(400).send("Please include name and description")
 	}
 
 	var categoryData = {
-		name: req.body.name,
-		description: req.body.description
+		name: req.body.name
+		
 	}
 
 	newCategory = new Category(categoryData);
@@ -16,7 +16,7 @@ module.exports.createCategory = function(req, res){
 		if(err){
 			return res.status(500).send("Unable to save category")
 		}
-		return res.status(200).send("Successfully saved category")
+	
 	})
 }
 

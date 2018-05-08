@@ -1,10 +1,11 @@
 var express = require('express');
 var router = express.Router();
-var auth = require('../middleware/auth');
 var postController = require('../controllers/post-controller');
 
-router.post('/create-post', auth, postController.createPost);
+router.post('/create-posts', postController.createPost);
+router.get('/get-posts', postController.getPosts);
 
-router.get('/get-post-by-thread', postController.getPostByThread);
+//router.post('/', postController.createPost);
+//router.get('/', postController.getPosts);
 
 module.exports = router;
